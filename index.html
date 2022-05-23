@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>lost call system</h1>
+    <br>
+    <p>
+        clc;
+        clear all;
+        close all;
+
+        inputTrafficDensity = input("Enter the input traffic intensity value");
+        numberOfOutgoingTrunks = input("Enter the number of outgoing trunks");
+
+        for j=1:1:numberOfOutgoingTrunks
+            L(j)=inputTrafficDensity^j/factorial(j);
+            S(j)=sum(L);
+        end;
+
+        disp(S);
+
+        for k=1:1:numberOfOutgoingTrunks
+            C(k)=inputTrafficDensity^k/factorial(k);
+        end;
+
+        for i=1:1:numberOfOutgoingTrunks
+            G(i)=C(i)/S(i);
+            disp(G(i));
+            
+        end;
+
+        i=1:1:numberOfOutgoingTrunks;
+        plot(i , G(i), 'r+.');
+        title("Analysis of Lost call system");
+        xlabel("No. Of Trunks(N)");
+        ylabel("Grade of Service(B)");
+    </p>
+    <br>
+</body>
+</html>
